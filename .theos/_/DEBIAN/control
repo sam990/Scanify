@@ -1,0 +1,10 @@
+Package: com.sam990.scanify
+Name: Scanify
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Adds Scan button in WiFi Settings and removes RSSI Threshold during scan (allows weak networks to show).
+Maintainer: Sameer
+Author: Sameer
+Section: Tweaks
+Version: 0.0.1-85
+Installed-Size: 136
