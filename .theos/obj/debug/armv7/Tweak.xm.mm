@@ -23,7 +23,7 @@
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class WFScanRequest; @class WFAirportViewController; 
+@class WFAirportViewController; @class WFScanRequest; 
 static long long (*_logos_orig$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, long long); static long long _logos_method$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, long long); static id (*_logos_orig$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static id _logos_method$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static void (*_logos_orig$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static void _logos_method$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static BOOL (*_logos_orig$_ungrouped$WFScanRequest$applyRssiThresholdFilter)(_LOGOS_SELF_TYPE_NORMAL WFScanRequest* _LOGOS_SELF_CONST, SEL); static BOOL _logos_method$_ungrouped$WFScanRequest$applyRssiThresholdFilter(_LOGOS_SELF_TYPE_NORMAL WFScanRequest* _LOGOS_SELF_CONST, SEL); 
 
 #line 4 "Tweak.xm"
@@ -44,8 +44,14 @@ static long long _logos_method$_ungrouped$WFAirportViewController$tableView$numb
 static id _logos_method$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST __unused self, SEL __unused _cmd, id arg1, id arg2) {
 	
 	if(((NSIndexPath *)arg2).section == 1 && ((NSIndexPath *)arg2).row + 1 == rowsInSection1){
-			UITableViewCell* refreshCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WFRefreshCell"];
-			refreshCell.textLabel.text = @"       Scan...";
+			
+			
+
+			UITableViewCell* refreshCell = [((UITableView *)arg1) dequeueReusableCellWithIdentifier:@"WFOtherNetworkCell"];
+			refreshCell.textLabel.text = @"Scan...";
+			[refreshCell setPreservesSuperviewLayoutMargins:YES];
+			[[refreshCell contentView] setPreservesSuperviewLayoutMargins:YES];
+			refreshCell.layoutMargins = UIEdgeInsetsMake(0.0 , 40.0, 0.0, 0.0);
 			return refreshCell;	
 	}
 	else return _logos_orig$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$(self, _cmd, arg1, arg2);
@@ -76,4 +82,4 @@ static BOOL _logos_method$_ungrouped$WFScanRequest$applyRssiThresholdFilter(_LOG
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$WFAirportViewController = objc_getClass("WFAirportViewController"); MSHookMessageEx(_logos_class$_ungrouped$WFAirportViewController, @selector(tableView:numberOfRowsInSection:), (IMP)&_logos_method$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$, (IMP*)&_logos_orig$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$);MSHookMessageEx(_logos_class$_ungrouped$WFAirportViewController, @selector(tableView:cellForRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$);MSHookMessageEx(_logos_class$_ungrouped$WFAirportViewController, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$);Class _logos_class$_ungrouped$WFScanRequest = objc_getClass("WFScanRequest"); MSHookMessageEx(_logos_class$_ungrouped$WFScanRequest, @selector(applyRssiThresholdFilter), (IMP)&_logos_method$_ungrouped$WFScanRequest$applyRssiThresholdFilter, (IMP*)&_logos_orig$_ungrouped$WFScanRequest$applyRssiThresholdFilter);} }
-#line 51 "Tweak.xm"
+#line 57 "Tweak.xm"

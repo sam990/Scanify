@@ -23,7 +23,7 @@
 #define _LOGOS_RETURN_RETAINED
 #endif
 
-@class WFAirportViewController; @class WFScanRequest; 
+@class WFScanRequest; @class WFAirportViewController; 
 static long long (*_logos_orig$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, long long); static long long _logos_method$_ungrouped$WFAirportViewController$tableView$numberOfRowsInSection$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, long long); static id (*_logos_orig$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static id _logos_method$_ungrouped$WFAirportViewController$tableView$cellForRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static void (*_logos_orig$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$)(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static void _logos_method$_ungrouped$WFAirportViewController$tableView$didSelectRowAtIndexPath$(_LOGOS_SELF_TYPE_NORMAL WFAirportViewController* _LOGOS_SELF_CONST, SEL, id, id); static BOOL (*_logos_orig$_ungrouped$WFScanRequest$applyRssiThresholdFilter)(_LOGOS_SELF_TYPE_NORMAL WFScanRequest* _LOGOS_SELF_CONST, SEL); static BOOL _logos_method$_ungrouped$WFScanRequest$applyRssiThresholdFilter(_LOGOS_SELF_TYPE_NORMAL WFScanRequest* _LOGOS_SELF_CONST, SEL); 
 
 #line 4 "Tweak.xm"

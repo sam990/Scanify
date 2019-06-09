@@ -18,8 +18,11 @@ static long long rowsInSection1;
 -(id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2 {
 	
 	if(((NSIndexPath *)arg2).section == 1 && ((NSIndexPath *)arg2).row + 1 == rowsInSection1){
-			UITableViewCell* refreshCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WFRefreshCell"];
-			refreshCell.textLabel.text = @"       Scan...";
+			UITableViewCell* refreshCell = [((UITableView *)arg1) dequeueReusableCellWithIdentifier:@"WFOtherNetworkCell"];
+			refreshCell.textLabel.text = @"Scan...";
+			[refreshCell setPreservesSuperviewLayoutMargins:YES];
+			[[refreshCell contentView] setPreservesSuperviewLayoutMargins:YES];
+			refreshCell.layoutMargins = UIEdgeInsetsMake(0.0 , 40.0, 0.0, 0.0);
 			return refreshCell;	
 	}
 	else return %orig;
